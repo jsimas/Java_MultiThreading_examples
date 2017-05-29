@@ -30,8 +30,9 @@ public class ShutdownSync {
 		p.start();	
 		
 		System.out.println("Please return to stop...");
-		Scanner s = new Scanner(System.in);
-		s.nextLine();
+		try (Scanner s = new Scanner(System.in)) {
+			s.nextLine();			
+		}
 		p.shutdown();
 		System.out.println("Completed");
 	}
